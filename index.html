@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<!--This is a login page made up with HTML,CSS and javascript-->
+
+<html>
+
+    <head>
+
+        <title>
+            
+            Login In/Sign Up
+        
+        </title>
+
+        <link type="text/css" rel="stylesheet" href="CSS/Login And Registration CSS.css">
+
+        
+        <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+
+    </head>
+
+    <body>
+
+        <section class="imp">
+
+            <section>
+
+            <div class="login show" id="one">
+
+                <div class="textbox slide-left2">
+
+                <div class="head">
+
+                    <h1>
+                        
+                        Sign In to Agri<span style="color:#78d98f;">Connect</span>
+                    
+                    </h1>
+
+                    <ul>
+
+                        <li>
+                            
+                            <i class="fab fa-facebook-f" style = "cursor: pointer;"></i>
+                        
+                        </li>
+
+                        <li>
+                            
+                            <i class="fab fa-google-plus-g" style = "cursor: pointer;"></i>
+                        
+                        </li>
+
+                        <li>
+                            
+                            <i class="fab fa-linkedin-in" style = "cursor: pointer;"></i>
+                        
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+                    <form action="">
+
+                        <input type="text" placeholder="EMAIL"  id = "email" required>
+                        <input type="password" placeholder="PASSWORD" id = "password" required>
+                        <button id="b">
+                            
+                            <a href="#" style = "cursor: pointer;">
+                                
+                                <p id="error-message"></p>
+
+                            
+                            </a>
+                        
+                        </button>
+
+                        <button type="submit" class = 'sign_in_btn' id = "signinbtn">
+                            <a href = '#' style = 'color: white;'>
+                                SIGN IN
+                            </a>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="sec show" id="two">
+
+                <div class="textbox slide-left">
+
+                <h1>
+                    
+                    Not a member?
+                
+                </h1>
+
+                <p>
+                    
+                    Sign up and start shopping.
+                
+                </p>
+
+                <button id="b1" style = "cursor: pointer;" class = 'prompt_sign_up'>
+                    
+                    SIGN UP
+                
+                </button>
+
+                </div>
+
+            </div>
+
+        </section>
+        
+        <section>
+
+            <div class="sec hide" id="three">
+
+                <div class="textbox slide-left">
+
+                    <h1>
+                        
+                        Already a member?
+                    
+                    </h1>
+
+                <p>
+                    
+                    Login to keep shopping.
+                
+                </p>
+
+                <button id="b2" style = "cursor: pointer;" class = 'prompt_sign_in'>
+                    
+                    SIGN IN
+                
+                </button>
+
+                </div>
+
+            </div>
+
+            <div class="login hide" id="four">
+
+                <div class="textbox slide-right">
+
+                <div class="head">
+
+                    <h1>
+                        
+                        Create Account 
+                    
+                    </h1>
+
+                    <ul>
+
+                        <li>
+                            
+                            <i class="fab fa-facebook-f" style = "cursor: pointer;"></i>
+                        
+                        </li>
+
+                        <li>
+                            
+                            <i class="fab fa-google-plus-g" style = "cursor: pointer;"></i>
+                        
+                        </li>
+
+                        <li>
+                            
+                            <i class="fab fa-linkedin-in" style = "cursor: pointer;"></i>
+                        
+                        </li>
+
+                    </ul>
+
+                    </div>
+
+                    <form action="">
+
+                        <input type="text" placeholder="NAME"id="Name" required>
+                        
+                        <br>
+
+                        <input type="text" placeholder="EMAIL" id="Email" required>
+                        
+                        <br>
+
+                        <input type="password" placeholder="PASSWORD" id="Password" required>
+
+                        <br>
+
+                        <input type="text" placeholder="ADDRESS" id="Address">
+
+                        <br>
+
+                        <button type="submit" style = "cursor: pointer;" class = 'sign_up_btn' id = "Signupbtn">
+                            <a href = '#' style = "color: white; text-decoration: none;">
+                            SIGN UP
+                            </a>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        </section>
+
+        
+    <script src="SCRIPT/Login And Registration JS.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword,createUserWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyDP6kVReKahJA5M_z_W_sZCLBT0EMj7_UM",
+          authDomain: "agriconnect-f8511.firebaseapp.com",
+          projectId: "agriconnect-f8511",
+          storageBucket: "agriconnect-f8511.appspot.com",
+          messagingSenderId: "276281943510",
+          appId: "1:276281943510:web:968e21c80affd5b5873077",
+          measurementId: "G-K4K3MW3MMG"
+        };
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const signinbtn = document.getElementById("signinbtn");
+        const Email = document.getElementById("Email");
+        const Password = document.getElementById("Password");
+        const Signupbtn = document.getElementById("Signupbtn");
+        const Name = document.getElementById("Name");
+        const Address = document.getElementById("Address");
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        const db = getFirestore(app);
+        signinbtn.addEventListener('click', () => {
+            signInWithEmailAndPassword(auth, email.value, password.value)
+            .then((userCredential) => { 
+                const user = auth.currentUser;;
+                const uid = user.uid;
+                console.log(`User signed in successfully ${uid}`);
+                window.location.href = `Home Page HTML.html?user=${uid}`;
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+        });
+        Signupbtn.addEventListener('click', () =>{
+            createUserWithEmailAndPassword(auth, Email.value, Password.value)
+                .then((userCredential) => { 
+                    const user = auth.currentUser;
+                    const uid = user.uid;
+                    const pathRef = doc(db, 'users', `${uid}`);
+                    console.log(`User signed in successfully ${uid}`);
+                    window.location.href = `Home Page HTML.html?user=${uid}`;
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+        })
+        // ... (existing code)
+
+signinbtn.addEventListener('click', () => {
+    signInWithEmailAndPassword(auth, email.value, password.value)
+        .then((userCredential) => { 
+            const user = auth.currentUser;
+            const uid = user.uid;
+            console.log(`User signed in successfully ${uid}`);
+            window.location.href = `Home Page HTML.html?user=${uid}`;
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            if (errorCode === 'auth/wrong-password') {
+                // Display a message for incorrect password
+                const errorElement = document.getElementById("error-message");
+                errorElement.innerText = "Incorrect password. Please try again.";
+            }
+        });
+});
+
+      </script>
+    </body>
+
+</html>
