@@ -65,17 +65,15 @@
                     <form action="">
 
                         <input type="text" placeholder="EMAIL"  id = "email" required>
-                        <input type="password" placeholder="PASSWORD" id = "password" required>
-                        <button id="b">
+                        <input type="password" placeholder="PASSWORD" id = "password" required;">
+                        <button id="b" style="height: min-content;>
                             
                             <a href="#" style = "cursor: pointer;">
                                 
                                 <p id="error-message"></p>
 
-                            
                             </a>
                         
-                        </button>
 
                         <button type="submit" class = 'sign_in_btn' id = "signinbtn">
                             <a href = '#' style = 'color: white;'>
@@ -193,7 +191,17 @@
                         <br>
 
                         <input type="text" placeholder="ADDRESS" id="Address">
-
+                        <br>
+                        <div class="box">
+                            <div class="row">
+                                <p style="font-weight: 900;">You are a Seller (optional)</p>
+                                <label class="switch">
+                                    <input type="checkbox" id="sellerToggle" style="margin-left: 20px;">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
                         <br>
 
                         <button type="submit" style = "cursor: pointer;" class = 'sign_up_btn' id = "Signupbtn">
